@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+declare let window: any;
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,14 @@ export class HomePage {
   constructor() {}
 
   send(): any {
-    console.log('send');
+    window.YuGoFIT.play(
+      (res) => {
+        alert('got data');
+        console.log(res);
+      },
+      (error) => {
+        console.error('error', error);
+      }
+    );
   }
 }
